@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #f1f1f1 !important;
+            font-family: 'Ropa Sans', sans-serif;;
+		}
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #fcfcfc;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+			background-image: none;
+
+		}
+		.topimg{
+			margin: 10px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #000000;
+            font-family:'Ropa Sans', sans-serif;
+            /* position: absolute;
+            top:91px;
+            left: 628px;
+            letter-spacing: 0.22e,;
+            line-height: 100%;
+            display: inline-block;
+            width: 183px;
+            height: 96px; */
+
+
+		}
+
+		.login_btn {
+			width: 100%;
+			background: #4CA1AF !important;
+			color: white !important;
+            border-radius: 10px;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		#messages{
+			background-color: grey;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		}
+		#preloader{
+    		background:transparent url(assets/preloader2.gif) no-repeat center;
+   			 background-size: 20%;
+    		height: 100vh;
+   			 width:100%;
+    		position:fixed;
+   			 z-index: 100;
+  }
+	</style>
+
+</head>
+<body>
+	<div id="preloader">
+
+    </div>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card" >
+				<img src="assets/dobg.jpg" class="topimg">
+				<div class="d-flex justify-content-center">
+
+
+					<h3 id="form-title">LOGIN</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form method="POST" action="">
+						<div class="input-group mb-3">
+
+							<input type="text" name="username" placeholder="Enter your email" class="form-control">
+						</div>
+						<div class="input-group mb-2">
+
+								<input type="password" name="password" placeholder="Password" class="form-control" >
+						</div>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 				<input class="btn login_btn" type="submit" value="Login">
+				   			</div>
+					</form>
+
+				</div>
+
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+					</div>
+					<div class="d-flex justify-content-center links">
+					 <a href="{% url 'register' %}" class="ml-2">Forgot Password?</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script>
+		var loader=document.getElementById("preloader");
+		window.addEventListener("load",function(){
+		  loader.style.display="none";
+
+		});
+	  </script>
+
+</body>
+
+</html>
