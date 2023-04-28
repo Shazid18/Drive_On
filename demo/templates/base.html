@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+body{
+    display: block;
+    margin: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  overflow: hidden;
+  background-color: #4CA1AF;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Ropa Sans', sans-serif;
+}
+
+li a:hover:not(.active) {
+  background-color: #1b6670;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.logo img{
+  position: absolute;
+  height: auto;
+  right: 0px;
+  width: 10%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+</style>
+</head>
+<body>
+  <div class="logo">
+    <a href="{% url 'home' %}" ><img src="assets/logo.jpg" alt="logo"></a>
+  </div>
+
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'rent-car' %}">Rent Car</a></li>
+      <li><a href="{% url 'buy-car' %}">Buy Car</a></li>
+      <li><a href="{% url 'driver' %}">Hire Driver</a></li>
+      <li><a href="{% url 'profile' %}">Profile</a></li>
+    <li><a href="#">                          </a></li>
+    <li><a href="#">                           </a></li>
+        <li><a href="#">                          </a></li>
+      <li><a>Hello, {{request.user}}</a></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+
+
+
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+</html>
