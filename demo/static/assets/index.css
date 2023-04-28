@@ -1,0 +1,284 @@
+@keyframes shadow-pop-tr {
+    0% {
+      box-shadow: 0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18),
+        0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18),
+        0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18),
+        0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18);
+      transform: translateX(0) translateY(0);
+    }
+    to {
+      box-shadow: 1px -1px rgba(62, 62, 62, 0.18), 2px -2px rgba(62, 62, 62, 0.18),
+        3px -3px rgba(62, 62, 62, 0.18), 4px -4px rgba(62, 62, 62, 0.18),
+        5px -5px rgba(62, 62, 62, 0.18), 6px -6px rgba(62, 62, 62, 0.18),
+        7px -7px rgba(62, 62, 62, 0.18), 8px -8px rgba(62, 62, 62, 0.18);
+      transform: translateX(-8px) translateY(8px);
+    }
+  }
+  *{
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    line-height: normal;
+  }
+  .upper-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #4ca1af;
+    width: 100%;
+    height: 402px;
+  }
+  .youve-come-to-the-right-place {
+    position: absolute;
+    top: 213px;
+    left: 189px;
+    font-size: var(--font-size-lg);
+    line-height: 100%;
+    color: var(--color-white);
+    display: inline-block;
+    width: 255px;
+    height: 128px;
+  }
+  .hometop-head {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .hometop-text {
+    margin: 0;
+    position: absolute;
+    top: 93px;
+    left: 188px;
+    font-size: 45px;
+    line-height: 100%;
+    font-weight: 800;
+    font-family: var(--font-outfit);
+    color: var(--color-white);
+    display: inline-block;
+    width: 255px;
+    height: 114px;
+  }
+  .top-bar-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #b1dde4;
+    box-sizing: border-box;
+    width: 100%;
+    height: 54px;
+  }
+  .image-icon {
+    position: absolute;
+    top: 228px;
+    right: 50px;
+    width: 523px;
+    height: 364px;
+    object-fit: cover;
+  }
+  .log-in-button,
+  .rectangle-button,
+  .sign-up-button {
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+  }
+  .rectangle-button {
+    border: 1px solid #91c6cf;
+    top: 6px;
+    right: 0;
+    border-radius: var(--br-md);
+    box-sizing: border-box;
+    width: 96px;
+    height: 30px;
+  }
+  .join-now-div:hover,
+  .rectangle-button:hover,
+  .sign-up-button:hover {
+    animation: 1s ease 0s infinite normal none shadow-pop-tr;
+    opacity: 1;
+  }
+  .log-in-button,
+  .sign-up-button {
+    border: 0;
+  }
+  .log-in-button {
+    top: 10px;
+    right: 25px;
+    font-size: var(--font-size-lg);
+    line-height: 100%;
+    font-family: var(--font-ropa-sans);
+    color: var(--color-white);
+    text-align: left;
+    display: inline-block;
+  }
+  .sign-up-button {
+    top: 12px;
+    left: 1067px;
+    width: 96px;
+    height: 30px;
+  }
+  .rectangle-button1 {
+    border: 0;
+    padding: 0;
+    background-color: #58b4ba;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-md);
+    width: 116px;
+    height: 30px;
+  }
+  .join-now-button,
+  .join-now-div,
+  .rectangle-button1 {
+    position: absolute;
+    cursor: pointer;
+  }
+  .join-now-button {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    top: 5px;
+    left: 19px;
+    font-size: var(--font-size-lg);
+    line-height: 100%;
+    font-family: var(--font-ropa-sans);
+    color: var(--color-white);
+    text-align: left;
+    display: inline-block;
+  }
+  .join-now-div {
+    top: 311px;
+    left: 188px;
+    width: 116px;
+    height: 30px;
+  }
+  .join-now-div:hover {
+    width: 116px;
+    cursor: auto;
+  }
+  .how-driveon-works {
+    margin: 0;
+    position: absolute;
+    top: 634px;
+    left: 45%;
+    font-size: 25px;
+    line-height: 100%;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 400;
+    font-family: inherit;
+    color: #305256;
+    width: 203px;
+    height: 32px;
+
+  }
+  .log-in-icon {
+    position: absolute;
+    top: 728px;
+    left: 500px;
+    width: 134px;
+    height: 128.92px;
+    object-fit: cover;
+  }
+  .home-bottom1 {
+    margin: 0;
+    position: absolute;
+    top: 877px;
+    left: 470px;
+    font-size: inherit;
+    letter-spacing: 0.22em;
+    line-height: 100%;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 400;
+    font-family: inherit;
+    text-align: center;
+    width: 187px;
+    height: 113px;
+  }
+  .ellipse-icon {
+    position: absolute;
+    top: 737px;
+    left: 45%;
+    width: 160.32px;
+    height: 134px;
+    object-fit: cover;
+  }
+  .home-bottom2 {
+    margin: 0;
+    position: absolute;
+    top: 877px;
+    left: 42%;
+    font-size: inherit;
+    letter-spacing: 0.22em;
+    line-height: 100%;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 400;
+    font-family: inherit;
+    text-align: center;
+    width: 261px;
+    height: 86px;
+  }
+  .ellipse-icon1 {
+    position: absolute;
+    top: 728px;
+    left: 1250px;
+    width: 142px;
+    height: 142px;
+    object-fit: cover;
+  }
+  .home-bottom3 {
+    margin: 0;
+    position: absolute;
+    top: 878px;
+    left: 1115px;
+    font-size: inherit;
+    letter-spacing: 0.22em;
+    line-height: 100%;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 400;
+    font-family: inherit;
+    text-align: center;
+    width: 394px;
+    height: 45px;
+  }
+  .homepage-section {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-teal-100);
+    font-family: var(--font-ropa-sans);
+  }
+
+  :root {
+    /* fonts */
+    --font-ropa-sans: "Ropa Sans";
+    --font-outfit: Outfit;
+
+    /* font sizes */
+    --font-size-base: 15px;
+    --font-size-lg: 20px;
+
+    /* Colors */
+    --color-white: #fff;
+    --color-teal-100: #244752;
+
+    /* border radiuses */
+    --br-md: 24px;
+  }
+  #preloader{
+    background:transparent url(assets/preloader2.gif) no-repeat center;
+    background-size: 20%;
+    height: 100vh;
+    width:100%;
+    position:fixed;
+    z-index: 100;
+  }
+

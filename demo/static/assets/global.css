@@ -1,0 +1,16 @@
+:root {
+    /* fonts */
+    --font-ropa-sans: "Ropa Sans";
+    --font-outfit: Outfit;
+
+    /* font sizes */
+    --font-size-base: 15px;
+    --font-size-lg: 20px;
+
+    /* Colors */
+    --color-white: #fff;
+    --color-teal-100: #244752;
+
+    /* border radiuses */
+    --br-md: 24px;
+  }
