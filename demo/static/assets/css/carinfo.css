@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Ropa+Sans&family=Rowdies&display=swap');
+
+.rent-item {
+    padding: 30px;
+    text-align: center;
+    background: #ffffffb2;
+    transition: .5s;
+    box-shadow: 0 1px 15px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    border-radius: 15px;
+
+}
+
+
+.rent-item:hover,
+.rent-item.active {
+    background: #4CA1AF;
+}
+
+.rent-item h4 {
+    transition: .5s;
+}
+
+.rent-item:hover h4,
+.rent-item.active h4 {
+    color: #fff;
+}
+.display-4{
+    font-family: 'Ropa Sans', sans-serif;
+}
+.rent-item:hover .header,
+.rent-item:hover .price{
+    color:#525151 ;
+}
+.cartitle{
+    font-family: 'Outfit', sans-serif;
+    padding: 15px;
+    block-size: 50%;
+}
+.price{
+    font-family: 'Rowdies', cursive;
+    color: rgb(70, 68, 68);
+}
+#preloader{
+    		background:transparent url(assets/preloader2.gif) no-repeat center;
+   			 background-size: 20%;
+    		height: 100vh;
+   			 width:100%;
+    		position:fixed;
+   			 z-index: 100;
+  }

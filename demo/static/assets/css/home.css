@@ -1,10 +1,10 @@
-@keyframes shadow-pop-tr {
+/* @keyframes shadow-pop-tr {
     0% {
       box-shadow: 0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18),
         0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18),
         0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18),
         0 0 rgba(62, 62, 62, 0.18), 0 0 rgba(62, 62, 62, 0.18);
-      transform: translateX(0) translateY(0);
+      transform: translateX(16) translateY(15);
     }
     to {
       box-shadow: 1px -1px rgba(62, 62, 62, 0.18), 2px -2px rgba(62, 62, 62, 0.18),
@@ -13,7 +13,7 @@
         7px -7px rgba(62, 62, 62, 0.18), 8px -8px rgba(62, 62, 62, 0.18);
       transform: translateX(-8px) translateY(8px);
     }
-  }
+  } */
   *{
     box-sizing: border-box;
   }
@@ -82,6 +82,8 @@
     padding: 0;
     background-color: transparent;
     position: absolute;
+    z-index: 1;
+
   }
   .rectangle-button {
     border: 1px solid #91c6cf;
@@ -95,8 +97,14 @@
   .join-now-div:hover,
   .rectangle-button:hover,
   .sign-up-button:hover {
-    animation: 1s ease 0s infinite normal none shadow-pop-tr;
-    opacity: 1;
+
+    transform: translate(-12px,-12px);
+  }
+  .join-now-div:hover,
+  .rectangle-button:hover,
+  .sign-up-button:hover::after {
+
+    transform: translate(6px,6px);
   }
   .log-in-button,
   .sign-up-button {
@@ -127,6 +135,7 @@
     border-radius: var(--br-md);
     width: 116px;
     height: 30px;
+    transition: transform 0.3s ease;
   }
   .join-now-button,
   .join-now-div,
@@ -385,4 +394,21 @@
       right:40px;
       top:-40px;
     }
+  }
+  @media only screen and (max-width: 768px) {
+    .join-now-div:hover,
+    .rectangle-button:hover,
+    .sign-up-button:hover {
+      animation: none;
+      opacity: 0.8;
+    }
+  }
+  .logo{
+    display:flex ;
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 4px;
+    cursor: pointer;
+
   }
