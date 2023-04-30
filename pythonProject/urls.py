@@ -33,6 +33,15 @@ urlpatterns = [
     path('booking-details/<int:pk>/<str:id>', driveon.booking_details, name='booking-details'),
     path('rent-payment-confirmation/', driveon.rentPaymentconformation, name='rent-payment-confirmation'),
     path('buy-car/', driveon.Buy_car, name='buy-car'),
+    path('car-details/<int:pk>', driveon.car_details, name='car-details'),
+    path('sell-payment-Confirmation/<int:pk>/<str:id>', driveon.order_details, name='sell-payment-Confirmation'),
+    path('driver/', driveon.driver, name='driver'),
+    path('driver-payment/<int:pk>/<str:id>', driveon.driver_payment, name='driver-payment'),
+    path('profile/', driveon.viewProfile, name='view-profile'),
+    path('edit-profile/', driveon.editProfile, name='edit-profile'),
+    path("reset_password/", auth_views.PasswordResetView.as_view(),name='password_reset'),  #1. Submit Email From
+    path("reset_password_sent/", auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),  #2. Email sent success message
+    path("reset/<uidb64>/<token>/", auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),  #3. Link to password reset from in email
+    path("reset_password_complete/", auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),name='password_reset_complete'),  #4. Password successfully changed message
 
-
-]
+]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
