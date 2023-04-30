@@ -242,3 +242,48 @@ def driver_payment(request,pk,id):
         return redirect('/home')
 
     return render(request, 'driver-payment.html',contex)
+
+
+
+#profile update er kaj korbo
+@login_required(login_url='login')
+def editProfile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.cusprofile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('view-profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.cusprofile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'edit-profile.html', context)
+
+
+
+#profile information display er kaj korsi
+@login_required(login_url='login')
+def viewProfile(request):
+
+    user_id = request.user
+    pro_info = CusProfile.objects.filter(user=request.user).first()
+
+    context={
+        'user_id': user_id,
+        'pro_info': pro_info
+
+    }
+
+
+    return render(request, 'view-profile.html', context)
