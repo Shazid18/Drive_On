@@ -1,10 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Hire Driver
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
+<head>
+    <meta charset="utf-8">
+    <title>Rent Car</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/rentcar.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5">Find Driver</h1>
+            <div class="row">
+                {% for i in Hire_Drivers %}
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+                        <img class="img-fluid mb-3" src="{{i.dri_img.url}}" alt="">
+                        <h4 class="cartitle text-uppercase mb-4">{{i.dri_name}}</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="header px-2">
+                                <span>Age</span>
+                            </div>
+                            <div class="header px-2 border-left">
+                                <span>{{i.dri_age}}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="header px-2">
+                                <span>Experience</span>
+                            </div>
+                            <div class="header px-2 border-left">
+                                <span>{{i.dri_experience}}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="header px-2">
+                                <span>Salary</span>
+                            </div>
+                            <div class="header px-2 border-left">
+                                <span>{{i.expected_salary}}</span>
+                            </div>
+                        </div>
+                        <a class="btn btn-info px-3" href="{% url 'driver-payment' i.id user.id %}">Hire Driver</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
+
+
+{% endblock %}
