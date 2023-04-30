@@ -25,6 +25,14 @@ urlpatterns = [
     path('', driveon.index, name='index'),
     path('home/', driveon.home, name='home'),
     path('registration/', driveon.registration, name='registration'),
+    path('login/', driveon.login, name='login'),
+    path('logout/', driveon.logoutUser, name='logout'),
+    path('change-password/', driveon.PasswordsChangeView.as_view(template_name='change-password.html'), name='change-password'),
+    # path('password_success/', driveon.password_Success, name='password_success'),
+    path('rent-car/', driveon.rent_car, name='rent-car'),
+    path('booking-details/<int:pk>/<str:id>', driveon.booking_details, name='booking-details'),
+    path('rent-payment-confirmation/', driveon.rentPaymentconformation, name='rent-payment-confirmation'),
+    path('buy-car/', driveon.Buy_car, name='buy-car'),
 
 
 ]
