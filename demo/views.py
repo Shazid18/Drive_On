@@ -86,3 +86,125 @@ class PasswordsChangeView(PasswordChangeView):
 # dorkar nai ei page.ei page er kaj holo password change korle ekta success msg dey
 # def password_Success(request):
 #     return render(request,'password_success.html', {})
+
+
+
+
+
+#rent car gula display er kaj korsi
+@login_required(login_url='login')
+def rent_car(request):
+
+    rentCar = Rental_Car.objects.all()
+
+    return render(request, 'rentcar.html', {'Rental_Cars': rentCar})
+
+
+
+#car rent neyar jonno je je information lage oi page er kaj eikhane
+@login_required(login_url='login')
+def booking_details(request,pk,id):
+
+    rentcars = Rental_Car.objects.filter(pk=pk).first()
+    userid = User.objects.filter(id=id).first()
+    contex = {
+        'rentcars': rentcars,
+    }
+
+
+    if (request.method == 'POST'):
+
+        rent_time = request.POST['rent_time']
+        return_time = request.POST['return_time']
+        pickup_loc = request.POST['pickup_loc']
+
+
+        rentInfo = Rent_Car_Record(rent_time=rent_time, return_time=return_time, pickup_loc=pickup_loc, rent_car_id=rentcars, user_profile = userid)
+
+
+        rentInfo.save()
+        return redirect('/rent-payment-confirmation')
+
+    return render(request, 'booking_details.html', contex)
+
+
+
+#payment er transition id neyar kaj korsi
+@login_required(login_url='login')
+def rentPaymentconformation(request):
+
+    rent_record = Rent_Car_Record.objects.all().last()
+    rentcars = rent_record.rent_car_id.id
+    userid = request.user.id
+    car_image = rent_record.rent_car_id.car_image
+    car_model = rent_record.rent_car_id.car_model
+
+
+
+    contex = {
+        'rent_record': rent_record,
+        'car_image': car_image,
+        'car_model': car_model
+    }
+
+    if (request.method == 'POST'):
+
+        transition_id = request.POST['transition_id']
+
+
+        rentPayment = Rental_Car_payment(rental_car_id=rentcars, user_profile_id=userid, transition_id=transition_id)
+
+
+        rentPayment.save()
+        return redirect('/home')
+
+
+    return render(request, 'rent-car-payment-confarmation.html', contex )
+
+
+
+
+#sell er gari gula display korar kaj korsi
+@login_required(login_url='login')
+def Buy_car(request):
+
+    sellCar = Selling_Car.objects.all()
+
+    return render(request, 'buy-car.html',{'Selling_cars': sellCar})
+
+
+
+
+#sell car gular details display korar kaj korsi
+@login_required(login_url='login')
+def car_details(request,pk):
+
+    cars = Selling_Car.objects.filter(pk=pk).first()
+    contex= {
+        'cars':cars
+    }
+
+    return render(request, 'car-details.html',contex)
+
+
+
+#sell car er order details & transition id nibo
+@login_required(login_url='login')
+def order_details(request,pk,id):
+    buycars = Selling_Car.objects.filter(pk=pk).first()
+    userid = User.objects.filter(id=id).first()
+    contex = {
+        'buycars': buycars,
+    }
+
+    if (request.method == 'POST'):
+        transition_id = request.POST['transition_id']
+
+        sellPayment = Sell_Car_Payment(sell_car_id=buycars, user_profile=userid, transition_id=transition_id)
+
+        sellPayment.save()
+        return redirect('/home')
+
+
+
+    return render(request, 'order-details.html',contex)
