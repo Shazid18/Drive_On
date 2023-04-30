@@ -20,10 +20,11 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 import demo.views as driveon
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', driveon.index, name='index'),
+    path('home/', driveon.home, name='home'),
+    path('registration/', driveon.registration, name='registration'),
 
 
 ]
