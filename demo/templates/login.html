@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -95,7 +96,7 @@
 			margin-top: 10px;
 		}
 		#preloader{
-    		background:transparent url(assets/preloader2.gif) no-repeat center;
+    		background:transparent url({% static 'assets/preloader2.gif' %}) no-repeat center;
    			 background-size: 20%;
     		height: 100vh;
    			 width:100%;
@@ -113,7 +114,7 @@
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" >
-				<img src="assets/dobg.jpg" class="topimg">
+				<img src="{% static 'assets/dobg.jpg' %}" class="topimg">
 				<div class="d-flex justify-content-center">
 
 
@@ -139,10 +140,10 @@
 
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+						Don't have an account? <a href="{% url 'registration' %}" class="ml-2">Sign Up</a>
 					</div>
 					<div class="d-flex justify-content-center links">
-					 <a href="{% url 'register' %}" class="ml-2">Forgot Password?</a>
+					 <a href="{% url 'password_reset' %}" class="ml-2">Forgot Password?</a>
 					</div>
 				</div>
 
