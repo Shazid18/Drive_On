@@ -208,3 +208,37 @@ def order_details(request,pk,id):
 
 
     return render(request, 'order-details.html',contex)
+
+
+
+
+#driver display er kaj korsi
+@login_required(login_url='login')
+def driver(request):
+
+    hireDriver = Driver.objects.all()
+
+    return render(request, 'driver.html',{'Hire_Drivers': hireDriver})
+
+
+
+
+#driver Payment er kaj korbo
+@login_required(login_url='login')
+def driver_payment(request,pk,id):
+    drivers= Driver.objects.filter(pk=pk).first()
+    userid = User.objects.filter(id=id).first()
+    contex = {
+        'drivers': drivers,
+        'userid': userid
+    }
+
+    if (request.method == 'POST'):
+        transition_id = request.POST['transition_id']
+
+        driiverPayment = Driver_Payment(driver_id=drivers, user_profile=userid, transition_id=transition_id)
+
+        driiverPayment.save()
+        return redirect('/home')
+
+    return render(request, 'driver-payment.html',contex)
