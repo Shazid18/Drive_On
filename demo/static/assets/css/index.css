@@ -273,12 +273,12 @@
     /* border radiuses */
     --br-md: 24px;
   }
-  #preloader{
+  /*#preloader{
     background:transparent url(assets/preloader2.gif) no-repeat center;
     background-size: 20%;
     height: 100vh;
     width:100%;
     position:fixed;
     z-index: 100;
-  }
+  }*/
 

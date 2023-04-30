@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,11 +6,11 @@
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
     <title>Home:DriveOn</title>
-    <link rel="icon" href="assets/dobg.jpg">
+    <link rel="icon" href="{% static 'assets/dobg.jpg' %}">
     <meta name="description" content="" />
 
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="{% static 'assets/css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/home.css' %}" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Ropa Sans:ital,wght@0,400;1,400&display=swap"
@@ -18,60 +19,72 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap"
     />
-    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="{% static 'assets/css/sidebar.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  </head>
+      <style>  #preloader{
+    background:transparent url({% static 'assets/preloader2.gif' %}) no-repeat center;
+    background-size: 20%;
+    height: 100vh;
+    width:100%;
+    position:fixed;
+    z-index: 100;
+  }</style>
   </head>
   <body>
 
     <div id="preloader">
 
     </div>
+    <div class="upper-div" id="upper-home">
+    </div>
+    <div class="top-bar-div" id="header">
+        <div class="logo">
+            DriveON
+        </div>
+        <div>
+            <button class="sign-up-button" id="signUpButton">
+              <button class="rectangle-button" id="rectangleButton"></button>
+            </button>
+            <a class="log-in-button" id="logInButton" href="{% url 'login' %}">Log In</a>
 
-    <section class="homepage-section" id="homepage">
-      <div class="upper-div" id="upper-home"></div>
-      <div class="youve-come-to-the-right-place">
-        You’ve come to the right place. Book cars on demand by the hour or day.
-        Join instantly, drive in minutes.
-      </div>
-      <h1 class="hometop-text" id="hometop-heading">
-        <p class="hometop-head">Looking for a car?</p>
-      </h1>
-      <div class="top-bar-div" id="header"></div>
-      <img class="image-icon" alt="image" src="assets/landing icon.png" /><button
-        class="sign-up-button"
-        id="signUpButton"
-      >
-        <button class="rectangle-button" id="rectangleButton"></button
-        ><a href="login.html"><button class="log-in-button" id="logInButton">Log In</button>
-        </a>
-      </button>
+          </div>
+    </div>
 
-      <div class="join-now-div" id="joinNowContainer">
-        <button class="rectangle-button1" id="rectangleButton1"></button >
-        <a href="registration.html">
-          <button class="join-now-button" id="jOINNOWButton" href="#">JOIN NOW</button>
-          <!-- urlinputnitehobe a tag  er bodole -->
-        </a>
-      </div>
-      <h2 class="how-driveon-works" id="bottomheader">How DriveON Works</h2>
-      <img class="log-in-icon" alt="" src="assets/phone.png" />
-      <h2 class="home-bottom1" id="home-bottom">
-        Apply online with a valid driver's license. Most people are approved
-        instantly and can book a trip within minutes.
-      </h2>
-      <img class="ellipse-icon" alt="" src="assets/wheel.png" />
-      <h3 class="home-bottom2" id="home-bottom2">
-        Book a round trip car by the hour or day.
-      </h3>
-      <img class="ellipse-icon1" alt="" src="assets/drop.png" />
-      <h3 class="home-bottom3" id="home-bottom3">
-        When you're done, park the car in the same location you picked it up
-        from, then end the trip.
-      </h3>
-    </section>
 
+    <div class="wrapper">
+        <div class="cols cols0">
+            <span class="topline">Car solutions?</span>
+            <h1><span class="multiText"></span></h1>
+            <p>All in one place</p>
+            <div class="join-now-div" id="joinNowContainer">
+                <button class="rectangle-button1" id="rectangleButton1"></button >
+                <a href="{% url 'registration' %}">
+                  <button class="join-now-button" id="jOINNOWButton" href="#">JOIN NOW</button>
+                  <!-- urlinputnitehobe a tag  er bodole -->
+                </a>
+              </div>
+
+        </div>
+        <div class="cols cols1">
+            <div class="imgbox">
+                <img src="" alt="" id="splash">
+                <img src="{% static 'assets/homebg.png' %}">
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <script>
+      var typingEffect = new Typed(".multiText",{
+          strings: ["RENT","BUY","SELL","HIRE",],
+          loop:true,
+          typeSpeed:100,
+          backSpeed:80,
+          backDelay:1500,
+      })
+    </script>
     <!-- preloader script -->
   <script>
     var loader=document.getElementById("preloader");
@@ -80,6 +93,7 @@
 
     });
   </script>
+
 
 
   </body>
