@@ -170,7 +170,7 @@ def Buy_car(request):
 
     sellCar = Selling_Car.objects.all()
 
-    return render(request, 'buy-car.html',{'Selling_cars': sellCar})
+    return render(request, 'buycar.html',{'Selling_cars': sellCar})
 
 
 
