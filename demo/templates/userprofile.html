@@ -1,10 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Profile</title>
-        <link rel="icon" href="assets/dobg.jpg">
-        <link rel="stylesheet" href="profile.css">
+        <link rel="icon" href="{% static 'assets/dobg.jpg' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/profile.css' %}">
         <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
         <link href='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' rel='stylesheet'>
         <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js' rel='stylesheet'>
@@ -13,8 +24,8 @@
       </head>
 <body>
   <div id="particles-js"></div>
-  <script type="text/javascript" src="assets/js/particles.js"></script>
-  <script type="text/javascript" src="assets/js/app.js"></script>
+  <script type="text/javascript" src="{% static 'assets/js/particles.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/app.js' %}"></script>
   <div id="preloader"> </div>
 
 <div class="container" >
@@ -26,12 +37,12 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="assets/profileimage.jpg" alt="user" class="rounded-circle" width="150">
+                    <img src="{{pro_info.image.url}}" alt="{{user_id.username}}.jpg" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>Toufiq Ahmed Shawon</h4>
+                      <h4>{{user_id.username}}</h4>
                     </div>
                     <div class="col-sm-12">
-                      <a class="btn btn-info "  href="changepassword.html">Update Password</a>
+                      <a class="btn btn-info "  href="{% url 'change-password' %}">Update Password</a>
                     </div>
                   </div>
                 </div>
@@ -45,7 +56,7 @@
                       <h6 class="mb-0">First Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Toufiq Ahmed
+                      {{user_id.first_name}}
                     </div>
                   </div>
                   <hr>
@@ -54,7 +65,7 @@
                       <h6 class="mb-0">Last Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Shawon
+                      {{user_id.last_name}}
                     </div>
                   </div>
                   <hr>
@@ -63,7 +74,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      toufiq.shawon404@gmail.com
+                      {{user_id.email}}
                     </div>
                   </div>
                   <hr>
@@ -72,7 +83,16 @@
                       <h6 class="mb-0">Phone</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      01671518722
+                      {{pro_info.phone_num}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Credit Card No.</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{pro_info.credit_card_num}}
                     </div>
                   </div>
                   <hr>
@@ -87,15 +107,7 @@
                       <h6 class="mb-0">Street Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Dhanmondi,Dhaka
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Country</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bangladesh
+                      {{pro_info.address}}
                     </div>
                   </div>
                   <div class="row">
@@ -103,7 +115,7 @@
                       <h6 class="mb-0">City</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Dhaka
+                      {{pro_info.city}}
                     </div>
                   </div>
                   <div class="row">
@@ -111,13 +123,13 @@
                       <h6 class="mb-0">Zip Code</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      1205
+                      {{pro_info.zip_code}}
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info "  href="edit profile.html">Edit</a>
+                      <a class="btn btn-info "  href="{% url 'edit-profile' %}">Edit</a>
                     </div>
                   </div>
                 </div>
@@ -137,3 +149,5 @@
 	  </script>
 </body>
 </html>
+
+{% endblock %}

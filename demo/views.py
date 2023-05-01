@@ -286,7 +286,7 @@ def viewProfile(request):
     }
 
 
-    return render(request, 'view-profile.html', context)
+    return render(request, 'userprofile.html', context)
 
 def changePassword(request):
 
