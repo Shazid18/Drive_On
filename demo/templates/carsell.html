@@ -1,34 +1,50 @@
-.button-b{
-    background-color: #62B6B7;
-    color:#fff;
-    border-radius: 20px;
-    outline: none;
-    border: 2px solid #4CA1AF;
+<!DOCTYPE html>
+<html lang="en">
 
-    font-family: 'Outfit', sans-serif;
-    font-size: 20px;
-    cursor: pointer;
-    margin: 5px;
-    margin-left: 10px;
-}
-.button-a{
-  background-color: #62B6B7;
-  color:#fff;
-  border-radius: 20px;
-  outline: none;
-  border: 2px solid #4CA1AF;
+<head>
+    <meta charset="utf-8">
+    <title>Sell car</title>
+     <link rel="icon" href="assets/dobg.jpg">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  font-family: 'Outfit', sans-serif;
-  font-size: 20px;
-  cursor: pointer;
-  margin: 5px;
-  margin-left: -4px;
-}
-.button-a:hover,
-.button-b:hover{
-    background-color: #439A97;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transform: translateX(5px) translateY(-5px);
-}
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="carinfo.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="preloader">
+
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5">Choose Your Car</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+                        <img class="img-fluid mb-4" src="assets/corolla1.png" alt="">
+                        <h4 class="cartitle text-uppercase mb-4">Mercedes Benz R3</h4>
+                        <hr>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="price px-2">
+                                <span>12,50,000</span><span>BDT</span>
+                            </div>
+                        </div>
+                        <a class="btn btn-info px-3" href="#">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+		var loader=document.getElementById("preloader");
+		window.addEventListener("load",function(){
+		  loader.style.display="none";
+
+		});
+	  </script>
+
+</body>
+
+</html>
