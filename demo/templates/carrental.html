@@ -1,15 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rent Car
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>Rent Car</title>
-    <link rel="icon" href="assets/dobg.jpg">
+    <link rel="icon" href="{% static 'assets/dobg.jpg' %}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet"> -->
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="carinfo.css" rel="stylesheet">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'carinfo.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -20,23 +28,24 @@
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
             <div class="row">
+                {% for i in Rental_Cars %}
                 <div class="col-lg-4 col-md-6 mb-2">
                     <div class="rent-item mb-4">
-                        <img class="img-fluid mb-4" src="assets/corolla1.png" alt="">
-                        <h4 class="cartitle text-uppercase mb-4">Toyota Corolla</h4>
+                        <img class="img-fluid mb-4" src="{{i.car_image.url}}" alt="">
+                        <h4 class="cartitle text-uppercase mb-4">{{i.car_model}}</h4>
                         <hr>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="header px-2">
-                                <span>200BDT/Hour</span>
+                                <span>{{i.rate_per_hour}}/Hour</span>
                             </div>
                             <div class="header px-2 border-left">
-                                <span>3000BDT/day</span>
+                                <span>{{i.rate_per_day}}/day</span>
                             </div>
                         </div>
-                        <a class="btn btn-info px-3" href="">Book Now</a>
+                        <a class="btn btn-info px-3" href="{% url 'booking-details' i.id user.id %}">Book Now</a>
                     </div>
                 </div>
-
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -51,3 +60,4 @@
 </body>
 
 </html>
+{% endblock %}

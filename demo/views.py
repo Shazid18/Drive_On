@@ -97,7 +97,7 @@ def rent_car(request):
 
     rentCar = Rental_Car.objects.all()
 
-    return render(request, 'rentcar.html', {'Rental_Cars': rentCar})
+    return render(request, 'carrental.html', {'Rental_Cars': rentCar})
 
 
 
