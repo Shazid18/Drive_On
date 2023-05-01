@@ -48,3 +48,17 @@
     		position:fixed;
    			 z-index: 100;
   }
+  .rent-item img {
+    height: 250px;
+    width: 100%;
+    object-fit: contain;
+  }
+  .rent-item img {
+    transition: all 0.5s;
+  }
+
+  .rent-item:hover img {
+    transform: scale(1.2);
+    z-index: 9999;
+    position: relative;
+  }
