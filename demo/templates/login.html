@@ -122,6 +122,8 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 					<form method="POST" action="">
+						{% csrf_token %}
+
 						<div class="input-group mb-3">
 
 							<input type="text" name="username" placeholder="Enter your email" class="form-control">
@@ -137,6 +139,10 @@
 					</form>
 
 				</div>
+
+				{% for message in messages %}
+                <p id="message">{{message}}</p>
+                {% endfor %}
 
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">

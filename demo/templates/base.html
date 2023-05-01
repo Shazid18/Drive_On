@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,11 +53,20 @@ li a:hover:not(.active) {
   background-color: #04AA6D;
 }
 
+#preloader{
+    background:transparent url({% static 'assets/preloader2.gif' %}) no-repeat center;
+    background-size: 20%;
+    height: 100vh;
+    width:100%;
+    position:fixed;
+    z-index: 100;
+  }
+
 </style>
 </head>
 <body>
   <div class="logo">
-    <a href="{% url 'home' %}" ><img src="assets/logo.jpg" alt="logo"></a>
+    <a href="{% url 'home' %}" ><img src="{% static 'assets/logo.jpg' %}" alt="logo"></a>
   </div>
 
     <ul>
@@ -64,7 +74,7 @@ li a:hover:not(.active) {
       <li><a href="{% url 'rent-car' %}">Rent Car</a></li>
       <li><a href="{% url 'buy-car' %}">Buy Car</a></li>
       <li><a href="{% url 'driver' %}">Hire Driver</a></li>
-      <li><a href="{% url 'profile' %}">Profile</a></li>
+      <li><a href="{% url 'view-profile' %}">Profile</a></li>
     <li><a href="#">                          </a></li>
     <li><a href="#">                           </a></li>
         <li><a href="#">                          </a></li>
