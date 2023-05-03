@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
+import time
 
 # Create your views here.
 
@@ -104,6 +105,7 @@ def rent_car(request):
 #car rent neyar jonno je je information lage oi page er kaj eikhane
 @login_required(login_url='login')
 def booking_details(request,pk,id):
+
 
     rentcars = Rental_Car.objects.filter(pk=pk).first()
     userid = User.objects.filter(id=id).first()
