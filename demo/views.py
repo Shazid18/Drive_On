@@ -125,7 +125,7 @@ def booking_details(request,pk,id):
         rentInfo.save()
         return redirect('/rent-payment-confirmation')
 
-    return render(request, 'booking_details.html', contex)
+    return render(request, 'rentcardetails.html', contex)
 
 
 
