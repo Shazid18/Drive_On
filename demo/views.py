@@ -159,7 +159,7 @@ def rentPaymentconformation(request):
         return redirect('/home')
 
 
-    return render(request, 'rent-car-payment-confarmation.html', contex )
+    return render(request, 'confirmation.html', contex )
 
 
 

@@ -1,3 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rent Car Payment
+{% endblock %}
+
+{% block content %}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +19,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="button.css" rel="stylesheet">
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/button.css' %}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -37,86 +48,73 @@
                 <div class="col-lg-8">
                     <h2 class="mb-4">Booking Confirmation:</h2>
                     <div class="col-lg-6 mb-4">
-                        <img  src="assets/corolla1.png" alt="car image" width="150px">
+                        <img  src="{{car_image.url}}" alt="car image" width="150px">
                     </div>
                     <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Model:</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          Toyota Corolla
+                          {{car_model}}
                         </div>
                         <div class="col-sm-3">
                             <h6 class="mb-0">Pickup Location</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
-                            Dhanmondi
+                            {{rent_record.pickup_loc}}
                           </div>
                           <div class="col-sm-3">
                             <h6 class="mb-0">Drop Location</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
-                            Dhanmondi
+                            {{rent_record.pickup_loc}}
                           </div>
                           <div class="col-sm-3">
                             <h6 class="mb-0">Starting Date & Time:</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
-                            20-02-20 2:445 PM
+                            {{rent_record.rent_time}}
                           </div>
                           <div class="col-sm-3">
                             <h6 class="mb-0">Ending Date & Time:</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
-                            20-02-20 2:445 PM
+                            {{rent_record.return_time}}
                           </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-12">     
-                            <button type="button" class="button-a" data-toggle="modal" data-target="#exampleModalCenter">
-                                BOOK
-                              </button>
-                        </div>
-                      </div>
+                      <form method="POST" action="#" class="form">
+                            {% csrf_token %}
+                            <div class="mb-5">
+                                <div class="row">
+                                    <div class="col-6 form-group">
+                                        <input maxlength="15" type="text" name="transition_id"
+                                            placeholder="Transaction ID" class="px-4" style="height: 50px;" required />
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+
+                                    <button class="btn  btn-info py-2" href="#" onclick="myFunction()">Book Now</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+
             </div>
-                        
-            
-    </div>
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Payment</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Total Cost:200BDT</h6>
-            </div>
-              <div class="input-group mb-2">
-            
-                  <input type="number" name="phone" placeholder="Phone number" class="form-control" >
-          </div>
-          <div class="input-group mb-2">
-            
-            <input type="text" name="transaction" placeholder="transaction id" class="form-control" >
-    </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" onclick="myFunction()" class="btn btn-primary">Submit</button>
-          </div>
+
         </div>
-      </div>
+
     </div>
 
-  
 </body>
 <script>
   function myFunction() {
-    alert("successful!");
+    alert("Order Confirmed...");
   }
   </script>
   <script>
@@ -129,3 +127,5 @@
 
 
 </html>
+
+{% endblock %}
