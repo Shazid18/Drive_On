@@ -20,10 +20,23 @@ Booking Details
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        #preloader{
+    		background:transparent url({% static 'assets/preloader2.gif' %}) no-repeat center;
+   			 background-size: 20%;
+    		height: 100vh;
+   			 width:100%;
+    		position:fixed;
+   			 z-index: 100;
+  }
+    </style>
 
 </head>
 
 <body>
+     <div id="preloader">
+
+    </div>
     <div class="container-fluid pt-5">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase mb-5">{{rentcars.car_model}}</h1>
@@ -137,6 +150,14 @@ Booking Details
             </div>
         </div>
     </div>
+<script>
+    var loader=document.getElementById("preloader");
+    window.addEventListener("load",function(){
+      loader.style.display="none";
+
+    });
+  </script>
+
 
 </body>
 
