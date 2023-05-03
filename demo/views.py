@@ -184,7 +184,7 @@ def car_details(request,pk):
         'cars':cars
     }
 
-    return render(request, 'car-details.html',contex)
+    return render(request, 'cardetails.html',contex)
 
 
 
@@ -207,7 +207,7 @@ def order_details(request,pk,id):
 
 
 
-    return render(request, 'order-details.html',contex)
+    return render(request, 'buycarconfirmation.html',contex)
 
 
 
@@ -241,7 +241,7 @@ def driver_payment(request,pk,id):
         driiverPayment.save()
         return redirect('/home')
 
-    return render(request, 'driver-payment.html',contex)
+    return render(request, 'driverpayment.html',contex)
 
 
 
