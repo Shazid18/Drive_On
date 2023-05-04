@@ -65,6 +65,9 @@ li a:hover:not(.active) {
 </style>
 </head>
 <body>
+	<div id="preloader">
+
+    </div>
   <div class="logo">
     <a href="{% url 'home' %}" ><img src="{% static 'assets/logo.jpg' %}" alt="logo"></a>
   </div>
@@ -87,6 +90,13 @@ li a:hover:not(.active) {
 
     {% block content %}
     {% endblock %}
+	<script>
+		var loader=document.getElementById("preloader");
+		window.addEventListener("load",function(){
+		  loader.style.display="none";
+
+		});
+	  </script>
 
 
 </body>
