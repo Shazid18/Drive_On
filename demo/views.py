@@ -14,6 +14,7 @@ from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 import time
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 
@@ -52,7 +53,6 @@ def login(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
-
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')

@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'demo',
     'payment',
     'cusProfile',
-    'codes',
-    'users',
 ]
 
 MIDDLEWARE = [
