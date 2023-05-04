@@ -64,11 +64,7 @@ li a:hover:not(.active) {
 
 </style>
 </head>
-<body >
-  <div id="preloader">
-
-
-      </div>
+<body>
   <div class="logo">
     <a href="{% url 'home' %}" ><img src="{% static 'assets/logo.jpg' %}" alt="logo"></a>
   </div>
@@ -92,21 +88,6 @@ li a:hover:not(.active) {
     {% block content %}
     {% endblock %}
 
-<!--<script>-->
-<!--  var loader=document.getElementById("preloader");-->
-<!--  function preload(){-->
-<!--   loader.style.display="none";-->
-<!--   }-->
 
-
-<!--   function myFunction() {-->
-<!--myVar = setTimeout(evnl, 10);-->
-
-<!--}-->
-<!--function evnl(){-->
-<!--    window.addEventListener("load",preload)-->
-<!--}-->
-
-<!--</script>-->
 </body>
 </html>
