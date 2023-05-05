@@ -121,3 +121,18 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 7
+try:
+    report.write_step('Buy Car Details', status=report.status.Start, test_number=7)
+
+    driver.find_element(By.XPATH, "/html/body/div[3]/div/div/div[1]/div/a").click()
+    time.sleep(2)
+    assert (driver.title == 'Car Details')
+    report.write_step('Successfully redirect Buy Car Details page ', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to redirect Buy Car Details page', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
