@@ -181,3 +181,48 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 11
+try:
+    report.write_step('Update Profile', status=report.status.Start, test_number=11)
+
+    driver.find_element(By.XPATH, "/html/body/div[4]/div/div/div[2]/div/div/div[10]/div/a").click()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[1]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[1]/input").send_keys("Ahmed")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[2]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[2]/input").send_keys("Shamir")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[6]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[6]/input").send_keys("01796221385")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[7]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[7]/input").send_keys("159753258")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[8]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[8]/input").send_keys("Mirpur-1")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[9]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[9]/input").send_keys("Dhaka")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[10]/input").clear()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/fieldset/p[10]/input").send_keys("1206")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/div/button").click()
+    time.sleep(2)
+    assert (driver.title == 'Profile')
+    report.write_step('Profile Update Successfully', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to Update Profile', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
