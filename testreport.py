@@ -136,3 +136,18 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 8
+try:
+    report.write_step('Payment', status=report.status.Start, test_number=8)
+
+    driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/a").click()
+    time.sleep(2)
+    assert (driver.title == 'Buy Car Payment')
+    report.write_step('Payment Successfull', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Payment Failed', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
