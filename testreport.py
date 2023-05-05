@@ -264,3 +264,30 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 14
+try:
+    report.write_step('Login user with updated password', status=report.status.Start, test_number=14)
+
+    driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/a").click()
+    time.sleep(1)
+    driver.find_element(By.NAME, "username").send_keys("Shazid")
+    time.sleep(2)
+    driver.find_element(By.NAME, "password").send_keys("uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[2]/form/div[3]/input").click()
+    time.sleep(2)
+    assert (driver.title == 'Home')
+    report.write_step('Successfully login with updated password', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to login with updated password', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
+
+
+finally:
+    report.generate_report()
+
+driver.close()
