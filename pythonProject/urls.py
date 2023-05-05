@@ -26,6 +26,7 @@ urlpatterns = [
     path('home/', driveon.home, name='home'),
     path('registration/', driveon.registration, name='registration'),
     path('login/', driveon.login, name='login'),
+    path('verify/', driveon.verify, name='verify'),
     path('logout/', driveon.logoutUser, name='logout'),
     path('change-password/', driveon.PasswordsChangeView.as_view(template_name='change-password.html'), name='change-password'),
     # path('password_success/', driveon.password_Success, name='password_success'),

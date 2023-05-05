@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Login</title>
-	<link rel="icon" href="assets/dobg.jpg">
+	<title>Verification</title>
+	<link rel="icon" href="{% static 'assets/dobg.jpg' %}">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
@@ -113,7 +114,7 @@
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" >
-				<img src="assets/dobg.jpg" class="topimg">
+				<img src="{% static 'assets/dobg.jpg' %}" class="topimg">
 				<div class="d-flex justify-content-center">
 
 
@@ -121,6 +122,7 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 					<form method="POST" action="">
+						{% csrf_token %}
 						<div class="input-group mb-3">
 
 							<input type="text" name="otp" placeholder="Enter the otp" class="form-control">
@@ -135,7 +137,7 @@
 
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Did not recieve a otp? <a href="#" class="ml-2">Resend</a>
+<!--						Did not recieve a otp? <a href="#" class="ml-2">Resend</a>-->
 					</div>
 				</div>
 

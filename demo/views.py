@@ -14,6 +14,8 @@ from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 import time
+import random
+
 from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
@@ -28,6 +30,20 @@ def index(request):
 @login_required(login_url='login')
 def home(request):
     return render(request, 'home.html')
+
+
+def verify(request):
+    # generate a random 5-digit number
+    num = random.randint(10000, 99999)
+    if request.method == 'POST':
+        otp = request.POST.get('otp')
+        if otp == num:
+            return redirect('home')
+        else:
+            return redirect('login')
+
+    return render(request, 'verification.html')
+
 
 
 #sign-up er kaj korsi
@@ -61,7 +77,7 @@ def login(request):
 
             if user is not None:
                 auth_login(request, user)
-                return redirect('home')
+                return redirect('verify')
             else:
                 messages.info(request,'Username or Password is incorrect')
 
