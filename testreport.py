@@ -27,3 +27,33 @@ except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
 
+# Test Case 2
+try:
+    report.write_step("Signup for a user", status=report.status.Start, test_number=2)
+
+    driver.find_element(By.XPATH, "/html/body/div[4]/div[1]/div/a/button").click()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[1]/input").send_keys("Orne")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/input").send_keys("Israt")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[3]/input").send_keys("Jahan")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[4]/input").send_keys("orne@gmail.com")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[5]/input").send_keys("uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[6]/input").send_keys("uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[7]/input").click()
+    time.sleep(2)
+    assert (driver.title == 'Login')
+    report.write_step('Successfully Signup.', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to Signup', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
+
