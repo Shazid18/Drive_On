@@ -57,3 +57,22 @@ except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
 
+# Test Case 3
+try:
+    report.write_step('Login for a user', status=report.status.Start, test_number=3)
+
+    driver.find_element(By.NAME, "username").send_keys("Shazid")
+    time.sleep(2)
+    driver.find_element(By.NAME, "password").send_keys("Uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[2]/form/div[3]/input").click()
+    time.sleep(2)
+    assert (driver.title == 'Home')
+    report.write_step('Successfully login ', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to login', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
