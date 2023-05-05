@@ -166,3 +166,18 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 10
+try:
+    report.write_step('Goto to Profile', status=report.status.Start, test_number=10)
+
+    driver.find_element(By.XPATH, "/html/body/ul/li[5]/a").click()
+    time.sleep(2)
+    assert (driver.title == 'Profile')
+    report.write_step('Profile loded Successfully', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to load Profile', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
