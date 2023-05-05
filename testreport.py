@@ -249,3 +249,18 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 13
+try:
+    report.write_step('Logout User', status=report.status.Start, test_number=13)
+
+    driver.find_element(By.XPATH, "/html/body/ul/li[10]/a").click()
+    time.sleep(2)
+    assert (driver.title == 'Home:DriveOn')
+    report.write_step('User has been logged out.', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to Logout', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
