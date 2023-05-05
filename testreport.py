@@ -226,3 +226,26 @@ except AssertionError:
 except Exception as e:
     report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
 
+# Test Case 12
+try:
+    report.write_step('Update Password', status=report.status.Start, test_number=12)
+
+    driver.find_element(By.XPATH, "/html/body/div[4]/div/div/div[1]/div/div/div/div[2]/a").click()
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/p[1]/input").send_keys("Uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/p[2]/input").send_keys("uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/p[3]/input").send_keys("uap12345")
+    time.sleep(2)
+    driver.find_element(By.XPATH, "/html/body/div[2]/form/button").click()
+    time.sleep(2)
+    assert (driver.title == 'Profile')
+    report.write_step('Password Update Successfully', status=report.status.Pass, screenshot=True)
+
+except AssertionError:
+    report.write_step('Failed to Update Password', status=report.status.Fail, screenshot=True)
+
+except Exception as e:
+    report.write_step('Something went wrong!!!', status=report.status.Warn, screenshot=True)
+
